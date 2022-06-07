@@ -11,6 +11,18 @@
       sizes="32x32"
       href="./images/favicon-32x32.png"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <script type="text/javascript" src="data.json"></script>
+    <script type="text/javascript" src="js/main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <title>Frontend Mentor | Expenses chart component</title>
   </head>
@@ -30,56 +42,22 @@
         <div class="spending-wrapper">
           <h1>Spending - Last 7 days</h1>
           <div class="graph-wrapper">
-            <div class="days">
-              <div class="days-bar monday"></div>
-              <p>mon</p>
-            </div>
-
-            <div class="days">
-              <div class="days-bar tuesday"></div>
-              <p>tues</p>
-            </div>
-
-            <div class="days">
-              <div class="days-bar wednesday"></div>
-              <p>wed</p>
-            </div>
-
-            <div class="days">
-              <div class="days-bar thursday"></div>
-              <p>thu</p>
-            </div>
-
-            <div class="days">
-              <div class="days-bar friday"></div>
-              <p>fri</p>
-            </div>
-
-            <div class="days">
-              <div class="days-bar saturday"></div>
-              <p>sat</p>
-            </div>
-
-            <div class="days">
-              <div class="days-bar sunday"></div>
-              <p>sun</p>
-            </div>
+            <canvas id="myChart" aria-label="spending chart"></canvas>
           </div>
 
-          <hr>
-          
+          <hr />
+
           <div class="summary">
             <div class="total-wrapper">
-              <h3>Total this month</p>
+              <h5>Total this month</h5>
               <span class="total">$478.33</span>
             </div>
             <div class="change">
               <span class="percent-change">+2.4%</span>
-              <p>from last month</p>
+              <h5>from last month</h5>
             </div>
           </div>
         </div>
-
       </div>
     </main>
 
