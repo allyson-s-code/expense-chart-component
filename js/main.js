@@ -23,7 +23,8 @@ const data = {
         "#ff9b87",
         "#ff9b87",
       ],
-      borderRadius: 2.5,
+      borderSkipped: false,
+      borderRadius: 3,
       datalabels: {
         display: true,
       },
@@ -31,6 +32,27 @@ const data = {
   ],
 };
 
+//tooltip
+const titleTooltip = (tooltipItems) => {
+  return "";
+};
+
+const labelTooltip = (context) => {
+  let label = context.dataset.label || "";
+
+  if (label) {
+    label += ": ";
+  }
+  if (context.parsed.y !== null) {
+    label += new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    }).format(context.parsed.y);
+  }
+  return label;
+};
+
+//config
 const config = {
   type: "bar",
   data,
@@ -47,12 +69,13 @@ const config = {
         },
       },
       x: {
-        display: false,
         grid: {
           display: false,
+          borderWidth: 0,
         },
         ticks: {
           display: true,
+          color: "hsl(28, 10%, 53%)",
         },
       },
     },
@@ -61,8 +84,23 @@ const config = {
       legend: {
         display: false,
       },
+      tooltip: {
+        caretSize: 0,
+        yAlign: "bottom",
+        displayColors: false,
+        bodyFont: {
+          weight: 700,
+          size: 14,
+          color: "hsl(10, 79%, 65%)",
+        },
+        callbacks: {
+          title: titleTooltip,
+          label: labelTooltip,
+        },
+      },
     },
   },
 };
 
+//create chart
 const spendingChart = new Chart(canvasElement, config);

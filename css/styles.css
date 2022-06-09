@@ -38,7 +38,6 @@ main {
 
 .content-wrapper {
   width: 90%;
-  max-width: 540px;
   gap: 15px;
   height: auto;
   display: flex;
@@ -47,6 +46,7 @@ main {
   align-items: center;
 }
 
+/* -- Balance Card -- */
 .balance {
   width: 100%;
   background-color: hsl(10, 79%, 65%);
@@ -70,6 +70,7 @@ main {
   margin-top: 8px;
 }
 
+/* -- Spending Card -- */
 .spending-wrapper {
   width: 100%;
   background-color: hsl(33, 100%, 98%);
@@ -88,17 +89,19 @@ main {
   margin: 0;
 }
 
+/* -- Chart -- */
 .graph-wrapper {
   width: 100%;
   height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 #myChart {
   width: 100%;
-  margin: 25px 0;
+  margin: 40px 0 25px 0;
 }
 
 hr {
@@ -109,6 +112,7 @@ hr {
   margin-bottom: 25px;
 }
 
+/* -- Summary Section -- */
 .summary {
   width: 100%;
   display: flex;
@@ -119,7 +123,7 @@ hr {
 .total-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 
 .summary h5 {
@@ -133,6 +137,7 @@ hr {
   font-weight: 700;
   display: block;
   margin-top: 10px;
+  line-height: 1;
 }
 
 .change {
@@ -147,6 +152,7 @@ hr {
   font-weight: 700;
 }
 
+/* -- Footer -- */
 .attribution {
   font-size: 11px;
   text-align: center;
@@ -155,4 +161,65 @@ hr {
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+@media only screen and (min-width: 600px) {
+  .content-wrapper {
+    width: 90%;
+    max-width: 540px;
+    gap: 25px;
+  }
+
+  /* -- Balance Card -- */
+  .balance {
+    padding: 30px;
+  }
+
+  .balance-text-wrapper p {
+    font-size: 1em;
+  }
+
+  .balance-text-wrapper span {
+    font-size: 1.8em;
+    margin-top: 12px;
+  }
+
+  /* -- Spending Card -- */
+  .spending-wrapper {
+    padding: 40px 30px;
+  }
+
+  .spending-wrapper h1 {
+    font-size: 1.9em;
+  }
+
+  /* -- Chart -- */
+  #myChart {
+    margin: 45px 0 30px 0;
+  }
+
+  /*-- hr -- */
+  hr {
+    margin-bottom: 35px;
+  }
+
+  /* -- Summary Section -- */
+  .summary h5 {
+    font-size: 1em;
+  }
+
+  .total {
+    font-size: 2.6em;
+    margin-top: 10px;
+  }
+
+  .percent-change {
+    font-size: 1em;
+    padding-bottom: 5px;
+  }
+
+  /* -- Footer -- */
+  .attribution {
+    margin-top: 40px;
+  }
 }
