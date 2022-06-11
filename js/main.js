@@ -24,7 +24,7 @@ const data = {
         "#ff9b87",
       ],
       borderSkipped: false,
-      borderRadius: 3,
+      borderRadius: 4,
       datalabels: {
         display: true,
       },
@@ -33,10 +33,6 @@ const data = {
 };
 
 //tooltip
-const titleTooltip = (tooltipItems) => {
-  return "";
-};
-
 const labelTooltip = (context) => {
   let label = context.dataset.label || "";
 
@@ -52,11 +48,24 @@ const labelTooltip = (context) => {
   return label;
 };
 
+/*const tooltipFont = function (context) {
+    let width = context.chart.width;
+    let size = Math.round(width / 32);
+    return {
+      size: size,
+    };
+  }; */
+
 //config
 const config = {
   type: "bar",
   data,
   options: {
+    onHover: (event, chartElement) => {
+      event.native.target.style.cursor = chartElement[0]
+        ? "pointer"
+        : "default";
+    },
     scales: {
       y: {
         display: false,
@@ -79,7 +88,6 @@ const config = {
         },
       },
     },
-    responsive: false,
     plugins: {
       legend: {
         display: false,
@@ -89,12 +97,15 @@ const config = {
         yAlign: "bottom",
         displayColors: false,
         bodyFont: {
+          family: "DM Sans",
           weight: 700,
-          size: 14,
+          size: 16,
           color: "hsl(10, 79%, 65%)",
         },
         callbacks: {
-          title: titleTooltip,
+          title: (context) => {
+            return "";
+          },
           label: labelTooltip,
         },
       },
@@ -102,5 +113,16 @@ const config = {
   },
 };
 
+//Responsive Font
+function responsiveFont() {
+  if (window.outerWidth > 500) {
+    Chart.defaults.font.size = 16;
+  }
+  if (window.outerWidth < 500) {
+    Chart.defaults.font.size = 11;
+  }
+  myChart.update();
+}
+
 //create chart
-const spendingChart = new Chart(canvasElement, config);
+const myChart = new Chart(canvasElement, config);
