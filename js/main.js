@@ -66,6 +66,10 @@ const data = {
 };
 
 //tooltip
+const titleTooltip = (tooltipItems) => {
+  return "";
+};
+
 const labelTooltip = (context) => {
   let label = context.dataset.label || "";
 
@@ -80,14 +84,6 @@ const labelTooltip = (context) => {
   }
   return label;
 };
-
-/*const tooltipFont = function (context) {
-    let width = context.chart.width;
-    let size = Math.round(width / 32);
-    return {
-      size: size,
-    };
-  }; */
 
 //config
 const config = {
@@ -132,13 +128,15 @@ const config = {
         bodyFont: {
           family: "DM Sans",
           weight: 700,
-          size: 16,
+          size: (context) => {
+            let width = context.chart.width;
+            let size = Math.round(width / 20);
+            return size;
+          },
           color: "hsl(10, 79%, 65%)",
         },
         callbacks: {
-          title: (context) => {
-            return "";
-          },
+          title: titleTooltip,
           label: labelTooltip,
         },
       },
@@ -155,7 +153,18 @@ function responsiveFont() {
     Chart.defaults.font.size = 11;
   }
   myChart.update();
+  console.log("window resized");
 }
+/*window.addEventListener("resize", function () {
+  if (window.outerWidth > 500) {
+    Chart.defaults.font.size = 16;
+  }
+  if (window.outerWidth < 500) {
+    Chart.defaults.font.size = 11;
+  }
+  myChart.update();
+  console.log("window resized");
+});*/
 
 //create chart
 const myChart = new Chart(canvasElement, config);
