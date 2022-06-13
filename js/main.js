@@ -33,12 +33,15 @@ const labels = chartData.map((data) => data.day);
 const amount = chartData.map((data) => data.amount);
 const canvasElement = document.getElementById("myChart");
 
-if (window.outerWidth > 500) {
-  Chart.defaults.font.size = 16;
-}
-if (window.outerWidth < 500) {
-  Chart.defaults.font.size = 11;
-}
+const setFont = () => {
+  if (window.outerWidth > 500) {
+    Chart.defaults.font.size = 16;
+  }
+  if (window.outerWidth < 500) {
+    Chart.defaults.font.size = 11;
+  }
+};
+setFont();
 
 const data = {
   labels: labels,
