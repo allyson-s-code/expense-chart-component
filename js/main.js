@@ -156,10 +156,10 @@ const config = {
 
 //Responsive Font
 function responsiveFont() {
-  if (window.outerWidth > 500) {
+  if (window.innerWidth > 500) {
     Chart.defaults.font.size = 16;
   }
-  if (window.outerWidth < 500) {
+  if (window.innerWidth < 500) {
     Chart.defaults.font.size = 11;
   }
   myChart.update();
