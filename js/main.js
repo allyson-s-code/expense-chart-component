@@ -165,16 +165,6 @@ function responsiveFont() {
   myChart.update();
   console.log("window resized");
 }
-/*window.addEventListener("resize", function () {
-  if (window.outerWidth > 500) {
-    Chart.defaults.font.size = 16;
-  }
-  if (window.outerWidth < 500) {
-    Chart.defaults.font.size = 11;
-  }
-  myChart.update();
-  console.log("window resized");
-});*/
 
 //create chart
 const myChart = new Chart(canvasElement, config);
