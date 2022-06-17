@@ -20,8 +20,8 @@
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/styles.css" />
 
-    <script type="text/javascript" src="data.json"></script>
-    <script type="text/javascript" src="js/main.js" defer></script>
+    <script src="data.json"></script>
+    <script src="js/main.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <title>Frontend Mentor | Expenses chart component</title>
@@ -42,19 +42,23 @@
         <div class="spending-wrapper">
           <h1>Spending - Last 7 days</h1>
           <div class="graph-wrapper">
-            <canvas id="myChart" aria-label="spending chart"></canvas>
+            <canvas
+              id="myChart"
+              role="img"
+              aria-label="spending chart"
+            ></canvas>
           </div>
 
           <hr />
 
           <div class="summary">
             <div class="total-wrapper">
-              <h5>Total this month</h5>
+              <h2>Total this month</h2>
               <span class="total">$478.33</span>
             </div>
             <div class="change">
               <span class="percent-change">+2.4%</span>
-              <h5>from last month</h5>
+              <h2>from last month</h2>
             </div>
           </div>
         </div>
