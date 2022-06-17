@@ -126,7 +126,7 @@ hr {
   justify-content: flex-end;
 }
 
-.summary h5 {
+.summary h2 {
   font-size: 0.85em;
   font-weight: 400;
   color: hsl(28, 10%, 53%);
@@ -204,7 +204,7 @@ hr {
   }
 
   /* -- Summary Section -- */
-  .summary h5 {
+  .summary h2 {
     font-size: 1em;
   }
 
