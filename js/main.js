@@ -48,24 +48,17 @@ const data = {
   datasets: [
     {
       data: amount,
-      backgroundColor: [
-        "hsl(10, 79%, 65%)",
-        "hsl(10, 79%, 65%)",
-        "hsl(186, 34%, 60%)",
-        "hsl(10, 79%, 65%)",
-        "hsl(10, 79%, 65%)",
-        "hsl(10, 79%, 65%)",
-        "hsl(10, 79%, 65%)",
-      ],
-      hoverBackgroundColor: [
-        "#ff9b87",
-        "#ff9b87",
-        "#b4dfe5",
-        "#ff9b87",
-        "#ff9b87",
-        "#ff9b87",
-        "#ff9b87",
-      ],
+      //bar color for current day should be different
+      backgroundColor: function(context) {
+        const today = new Date().getDay() - 1;
+        const index = context.dataIndex;
+        return index === today ? 'hsl(186, 34%, 60%)': 'hsl(10, 79%, 65%)';
+      },
+      hoverBackgroundColor: function(context) {
+        const today = new Date().getDay() - 1;
+        const index = context.dataIndex;
+        return index === today ? "#b4dfe5" : "#ff9b87";
+      },
       borderSkipped: false,
       borderRadius: 4,
       datalabels: {
