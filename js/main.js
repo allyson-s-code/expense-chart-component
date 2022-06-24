@@ -156,7 +156,6 @@ function responsiveFont() {
     Chart.defaults.font.size = 11;
   }
   myChart.update();
-  console.log("window resized");
 }
 
 //create chart
