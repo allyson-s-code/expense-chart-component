@@ -49,13 +49,13 @@ const data = {
     {
       data: amount,
       //bar color for current day should be different
-      backgroundColor: function(context) {
-        const today = new Date().getDay() - 1;
+      backgroundColor: function (context) {
+        const today = new Date().getDay();
         const index = context.dataIndex;
-        return index === today ? 'hsl(186, 34%, 60%)': 'hsl(10, 79%, 65%)';
+        return index === today ? "hsl(186, 34%, 60%)" : "hsl(10, 79%, 65%)";
       },
-      hoverBackgroundColor: function(context) {
-        const today = new Date().getDay() - 1;
+      hoverBackgroundColor: function (context) {
+        const today = new Date().getDay();
         const index = context.dataIndex;
         return index === today ? "#b4dfe5" : "#ff9b87";
       },
